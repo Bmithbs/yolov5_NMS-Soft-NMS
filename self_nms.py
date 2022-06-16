@@ -75,13 +75,13 @@ def Self_NMS(boxes, scores, iou_thres, GIoU=False, DIoU=False, CIoU=False):
 
 def Self_Soft_NMS(boxes, scores, iou_thres, Giou=False, DIou=False, CIou=False, weight_method=0, sigma=0.5, soft_threshold=0.25):
     turn_scores = copy.deepcopy(scores)
-    B = torch.argsort(turn_scores, dim=-1, descending=True)
+    B = torch.argsort(turn_scores, dim=-1, descending=True) # 按照降序排列
     keep = []
     while B.numel() > 0:
-        B = torch.argsort(turn_scores,dim=-1,descending=True)
+        B = torch.argsort(turn_scores,dim=-1, descending=True)
         keep_len = len(keep)
-        max_index = B[keep_len] # 取最后一个，最后一个置信度最大
-        keep.append(max_index)
+        max_index = B[keep_len] 
+        keep.append(max_index) 
         other_index = B[keep_len+1:]
         if(len(other_index)==1):
             keep.append(other_index[-1])
