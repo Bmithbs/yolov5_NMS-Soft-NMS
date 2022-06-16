@@ -29,6 +29,7 @@ s_{i}= \begin{cases}s_{i}, & \operatorname{iou}\left(\mathcal{M}, b_{i}\right)<N
 $$
 
 Soft-NMS的改进有两种形式，一种是线性加权的：
+
 $$
 s_{i}= \begin{cases}s_{i}, & \operatorname{iou}\left(\mathcal{M}, b_{i}\right)<N_{t} \\ s_i(1-\operatorname{iou}\left(\mathcal{M}, b_{i}\right)), & \operatorname{iou}\left(\mathcal{M}, b_{i}\right) \geq N_{t}\end{cases}
 $$
